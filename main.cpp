@@ -21,11 +21,14 @@ float f4(float x, int intensity);
   
 int main (int argc, char* argv[]) {
 
-  auto start = std::chrono::steady_clock::now();
+  if (argc < 6) {
+    std::cerr<<"usage: "<<argv[0]<<" <functionid> <a> <b> <n> <intensity>"<<std::endl;
+    return -1;
+  }
 
   int functionID = atoi(argv[1]);
-  int lowerBound = atoi(argv[2]);
-  int upperBound = atoi(argv[3]);
+  float lowerBound = std::stof(argv[2]);
+  float upperBound = std::stof(argv[3]);
   int numOfPoints = atoi(argv[4]);
   int intensity = atoi(argv[5]);
   float functionResult = 0.0;
@@ -33,10 +36,7 @@ int main (int argc, char* argv[]) {
   float sumValue = 0.0;
   float finalValue = 0.0;
 
-  if (argc < 6) {
-    std::cerr<<"usage: "<<argv[0]<<" <functionid> <a> <b> <n> <intensity>"<<std::endl;
-    return -1;
-  }
+   auto start = std::chrono::steady_clock::now();
   
     switch(functionID)
       {
@@ -48,7 +48,6 @@ int main (int argc, char* argv[]) {
 	    sumValue = sumValue + functionResult;
 	  }
 	finalValue = ((upperBound-lowerBound)/numOfPoints) * sumValue;
-	std::cout<<finalValue;
 	break;
       case 2:
 	for (int i = 0; i < numOfPoints-1; i++)
@@ -58,7 +57,6 @@ int main (int argc, char* argv[]) {
 	    sumValue = sumValue + functionResult;
 	  }
 	finalValue = ((upperBound-lowerBound)/numOfPoints) * sumValue;
-	std::cout<<finalValue;
 	break;
       case 3:
 	for (int i = 0; i < numOfPoints-1; i++)
@@ -68,7 +66,6 @@ int main (int argc, char* argv[]) {
 	    sumValue = sumValue + functionResult;
 	  }
 	finalValue = ((upperBound-lowerBound)/numOfPoints) * sumValue;
-	std::cout<<finalValue;
 	break;
       case 4:
 	for (int i = 0; i < numOfPoints-1; i++)
@@ -78,12 +75,15 @@ int main (int argc, char* argv[]) {
 	    sumValue = sumValue + functionResult;
 	  }
 	finalValue = ((upperBound-lowerBound)/numOfPoints) * sumValue;
-	std::cout<<finalValue;
 	break;
       default:
 	std::cerr<<"Invalid function ID."<<std::endl;
       }
+    
   auto end = std::chrono::steady_clock::now();
+
+  std::cout<<finalValue;
+	
   std::chrono::duration<double> seconds_elapsed = end-start;
   std::cerr<<seconds_elapsed.count();
   
