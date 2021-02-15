@@ -41,7 +41,7 @@ int main (int argc, char* argv[]) {
     switch(functionID)
       {
       case 1:
-	for (int i = 0; i < numOfPoints-1; i++)
+	for (int i = 0; i < numOfPoints; i++)
 	  {
 	    x = lowerBound + (i + 0.5) * (((upperBound-lowerBound)/numOfPoints));
 	    functionResult = f1(x, intensity);
@@ -50,7 +50,7 @@ int main (int argc, char* argv[]) {
 	finalValue = ((upperBound-lowerBound)/numOfPoints) * sumValue;
 	break;
       case 2:
-	for (int i = 0; i < numOfPoints-1; i++)
+	for (int i = 0; i < numOfPoints; i++)
 	  {
 	    x = lowerBound + (i + 0.5) * (((upperBound-lowerBound)/numOfPoints));
 	     functionResult = f2(x, intensity);
@@ -59,7 +59,7 @@ int main (int argc, char* argv[]) {
 	finalValue = ((upperBound-lowerBound)/numOfPoints) * sumValue;
 	break;
       case 3:
-	for (int i = 0; i < numOfPoints-1; i++)
+	for (int i = 0; i < numOfPoints; i++)
 	  {
 	    x = lowerBound + (i + 0.5) * (((upperBound-lowerBound)/numOfPoints));
 	     functionResult = f3(x, intensity);
@@ -68,7 +68,7 @@ int main (int argc, char* argv[]) {
 	finalValue = ((upperBound-lowerBound)/numOfPoints) * sumValue;
 	break;
       case 4:
-	for (int i = 0; i < numOfPoints-1; i++)
+	for (int i = 0; i < numOfPoints; i++)
 	  {
 	    x = lowerBound + (i + 0.5) * (((upperBound-lowerBound)/numOfPoints));
 	     functionResult = f4(x, intensity);
